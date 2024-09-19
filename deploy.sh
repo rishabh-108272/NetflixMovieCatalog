@@ -1,15 +1,28 @@
 #!/bin/bash
+set -e
 
-# Stop any running instance of the app
-sudo pkill -f app.py
+echo ""
+echo "Installing python3.12-venv..."
+echo "--------------------------------"
+sudo apt-get update 
+sudo apt-get install -y python3.12-venv
 
-# Navigate to the app folder
-cd /home/ubuntu/app
+echo ""
+echo "Creating a Python virtual environment..."
+echo "--------------------------------"
+python3 -m venv venv
 
-# Install required Python packages
-pip3 install -r requirements.txt
+echo ""
+echo "Activating the Python virtual environment..."
+echo "--------------------------------"
+source venv/bin/activate
 
-# Start the Flask app
-nohup python3 app.py &
+echo ""
+echo "Install Python dependencies..."
+echo "--------------------------------"
+pip install -r requirements.txt
 
-echo "App deployed successfully!"
+echo ""
+echo "Starting the Python application..."
+echo "--------------------------------"
+python app.py
