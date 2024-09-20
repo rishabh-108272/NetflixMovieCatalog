@@ -43,4 +43,4 @@ jobs:
 
       - name: Execute deployment script
         run: |
-          ssh -o StrictHostKeyChecking=no -i ${{ env.PRIVATE_KEY_PATH }} ${{ env.EC2_USER_NAME }}@${{ env.EC2_PUBLIC_ADDRESS }} "bash cd ${{ env.TARGET_DIR }};./deploy.sh"
+          ssh -o StrictHostKeyChecking=no -i ${{ env.PRIVATE_KEY_PATH }} ${{ env.EC2_USER_NAME }}@${{ env.EC2_PUBLIC_ADDRESS }} "bash cd ${{ env.TARGET_DIR }};../deploy.sh"
